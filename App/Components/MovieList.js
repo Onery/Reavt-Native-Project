@@ -15,6 +15,7 @@ import {
     View,
     Image,
     ListView,
+    ActivityIndicator
 } from 'react-native';
 
 const REQUEST_URL = 'https://api.douban.com/v2/movie/top250'
@@ -140,9 +141,10 @@ class MovieList extends React.Component {
             return (
                 <View style={styles.container}>
                     <View style={styles.loading}>
-                        <Text>
-                            正在加载。。。
-                        </Text>
+                        <ActivityIndicator
+                            size="large"
+                            color='#6435c9'
+                        />
                     </View>
                 </View>
             )
