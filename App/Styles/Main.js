@@ -56,7 +56,8 @@ let styles=StyleSheet.create({
         borderBottomWidth:1,
         borderColor:'rgba(100,53,201,0.1)',
         paddingBottom:6,
-        marginBottom:6,
+        /*marginBottom:6,*/
+        paddingTop:6,
         flex:1,
     },
 

@@ -15,7 +15,9 @@ import {
     View,
     Image,
     ListView,
-    ActivityIndicator
+    ActivityIndicator,
+    TouchableHighlight,
+    TouchableOpacity
 } from 'react-native';
 
 const REQUEST_URL = 'https://api.douban.com/v2/movie/top250'
@@ -116,21 +118,28 @@ class MovieList extends React.Component {
 
     renderMovieList (movie) {
         return (
-            <View style={styles.item}>
-                <View style={styles.itemImg}>
-                    <Image source={{uri:movie.images.large}}
-                           style={styles.img}
-                    />
-                </View>
+            <TouchableOpacity
+                underlayColor="rgba(34,26,38,0.1)"
+                onPress={()=>{
+                    console.log(`${movie.title}`);
+                }}
+            >
+                <View style={styles.item}>
+                    <View style={styles.itemImg}>
+                        <Image source={{uri:movie.images.large}}
+                               style={styles.img}
+                        />
+                    </View>
 
-                <View style={styles.itemContent}>
-                    <Text style={styles.itemHeader}>{movie.title}</Text>
-                    <Text style={styles.itemMeta}>{movie.original_title}
-                        <Text style={{color:'#6435c9'}}>({movie.year})</Text>
-                    </Text>
-                    <Text style={styles.redText}> {movie.rating.average} </Text>
+                    <View style={styles.itemContent}>
+                        <Text style={styles.itemHeader}>{movie.title}</Text>
+                        <Text style={styles.itemMeta}>{movie.original_title}
+                            <Text style={{color:'#6435c9'}}>({movie.year})</Text>
+                        </Text>
+                        <Text style={styles.redText}> {movie.rating.average} </Text>
+                    </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     }
 
