@@ -119,7 +119,7 @@ class MovieList extends React.Component {
     renderMovieList (movie) {
         return (
             <TouchableOpacity
-                underlayColor="rgba(34,26,38,0.1)"
+                underlayColor="rgba(34,26,38,0.2)"
                 onPress={()=>{
                     console.log(`${movie.title}`);
                 }}
