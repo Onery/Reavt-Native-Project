@@ -11,17 +11,34 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import MovieList from './App/Components/MovieList'
 import USABox from './App/Components/USABox'
 import Chat from './App/Components/ChatScreen'
+import styles from './App/Styles/Main'
 
 const MainScreenNavigator = TabNavigator({
-    TopList: { screen: MovieList,
-               navigationOptions:{
-                   title:'热门电影',
-               }
-            },
-    BoxList: { screen: USABox ,
+    TopList: {
+        screen: MovieList,
         navigationOptions:{
-            title:'欧美排行'
-        }
+            title:'热门电影',
+            tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('./App/Img/film.png')}
+                    style={[styles.icon, {tintColor: tintColor}]}
+                />
+                ),
+            }
+        },
+
+    BoxList: {
+        screen: USABox ,
+        navigationOptions:{
+            title:'欧美排行',
+            tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('./App/Img/film-clap-board.png')}
+                    style={[styles.icon, {tintColor: tintColor}]}
+                />
+                ),
+            selected:true,
+            }
         },
 });
 
@@ -29,7 +46,7 @@ const MainScreenNavigator = TabNavigator({
 const MainNavigator = StackNavigator({
     Home: { screen: MainScreenNavigator,
             navigationOptions:{
-                title:'首页'
+                title:'首页',
             }},
     ChatC:{ screen:Chat}
 

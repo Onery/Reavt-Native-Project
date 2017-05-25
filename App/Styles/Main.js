@@ -14,6 +14,10 @@ import {
 
 let styles=StyleSheet.create({
 
+    icon: {
+        width: 26,
+        height: 26,
+    },
     loading:{
         flex:1,
         justifyContent:'center',
