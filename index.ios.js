@@ -5,36 +5,18 @@
  */
 
 import React, { Component } from 'react';
+import {AppRegistry, StyleSheet, Text, View, Image, ListView,Button} from 'react-native';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import MovieList from './App/Components/MovieList'
+import USABox from './App/Components/USABox'
 
 
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-    ListView,
-} from 'react-native';
+const MainNavigator = StackNavigator({
+    MovieTallNav: { screen: MovieList},
+    USABoxNav:{screen:USABox}
 
-
-
-
-class MovieTalk extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-  render () {
-    return (
-    <MovieList />
-
-    );
-  }
-
-}
-
+});
 
 class HeaderText extends React.Component {
   render () {
@@ -46,4 +28,4 @@ class HeaderText extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('MovieTalk', () => MovieTalk);
+AppRegistry.registerComponent('MovieTalk', () => MainNavigator);

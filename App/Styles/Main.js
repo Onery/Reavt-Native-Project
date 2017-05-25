@@ -132,7 +132,7 @@ let styles=StyleSheet.create({
         flexDirection:'row',
         backgroundColor:'#eae7ff',
         flex:1,
-        paddingTop:30,
+        paddingTop:0,
         // alignItems:'flex-end'
         // justifyContent:'space-around'
         // margin:30,

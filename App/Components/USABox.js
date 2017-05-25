@@ -9,7 +9,7 @@
 
 import React, { Component } from 'react';
 import styles from '../Styles/Main'
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+import {StackNavigator} from 'react-navigation'
 
 import {
     Text,
@@ -18,19 +18,17 @@ import {
     ListView,
     ActivityIndicator,
     TouchableHighlight,
-    TouchableOpacity,
-    Button
+    TouchableOpacity
 } from 'react-native';
 
-const REQUEST_URL = 'https://api.douban.com/v2/movie/top250'
+const REQUEST_URL = 'https://api.douban.com/v2/movie/us_box'
 
 
-class MovieList extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: 'HomePage',
-        headerRight: <Button title={'Chat'} onPress={() => navigation.navigate('USABoxNav', { user:  'HeChao' })
-        } />,
-    });
+class USABox extends React.Component {
+    static navigationOptions = {
+        title: 'Chat with Lucy',
+    };
+
     constructor(props) {
         super(props);
         /*let movies =[
@@ -100,11 +98,16 @@ class MovieList extends React.Component {
             movies:new ListView.DataSource({
                 rowHasChanged:(row1,row2) => row1 !==row2
             }),
+
             loaded:false
         };
 
 
-        this.renderMovieList = this.renderMovieList.bind(this);
+    this.renderMovieList=this.renderMovieList.bind(this);
+    }
+
+    componentDidMount() {
+        this.fetchData();
     }
 
     fetchData(){
@@ -119,33 +122,29 @@ class MovieList extends React.Component {
             .done();
     }
 
-    componentDidMount() {
-        this.fetchData();
-    }
 
 
     renderMovieList (movie) {
         return (
             <TouchableOpacity
                 underlayColor="rgba(34,26,38,0.2)"
-
                 onPress={()=>{
-                    this.props.navigation.navigate('USABoxNav');
+                    console.log(`${movie.title}`);
                 }}
             >
                 <View style={styles.item}>
                     <View style={styles.itemImg}>
-                        <Image source={{uri:movie.images.large}}
+                        <Image source={{uri:movie.subject.images.large}}
                                style={styles.img}
                         />
                     </View>
 
                     <View style={styles.itemContent}>
-                        <Text style={styles.itemHeader}>{movie.title}</Text>
-                        <Text style={styles.itemMeta}>{movie.original_title}
-                            <Text style={{color:'#6435c9'}}>({movie.year})</Text>
+                        <Text style={styles.itemHeader}>{movie.subject.title}</Text>
+                        <Text style={styles.itemMeta}>{movie.subject.original_title}
+                            <Text style={{color:'#6435c9'}}>({movie.subject.year})</Text>
                         </Text>
-                        <Text style={styles.redText}> {movie.rating.average} </Text>
+                        <Text style={styles.redText}> {movie.subject.rating.average} </Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -194,4 +193,4 @@ class HeaderText extends React.Component {
     }
 }
 
-export {MovieList as default}
+export {USABox as default}
