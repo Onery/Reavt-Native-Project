@@ -25,9 +25,9 @@ const REQUEST_URL = 'https://api.douban.com/v2/movie/us_box'
 
 
 class USABox extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
+    /*static navigationOptions = ({ navigation }) => ({
         title: `${navigation.state.params.usaBox}`,
-    });
+    });*/
 
     constructor(props) {
         super(props);
@@ -129,7 +129,7 @@ class USABox extends React.Component {
             <TouchableOpacity
                 underlayColor="rgba(34,26,38,0.2)"
                 onPress={()=>{
-                    console.log(`${movie.title}`);
+                    this.props.navigation.navigate('ChatC');
                 }}
             >
                 <View style={styles.item}>

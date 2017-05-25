@@ -10,13 +10,32 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 import MovieList from './App/Components/MovieList'
 import USABox from './App/Components/USABox'
+import Chat from './App/Components/ChatScreen'
+
+const MainScreenNavigator = TabNavigator({
+    TopList: { screen: MovieList,
+               navigationOptions:{
+                   title:'热门电影'
+               }
+            },
+    BoxList: { screen: USABox ,
+        navigationOptions:{
+            title:'欧美排行'
+        }
+        },
+});
 
 
 const MainNavigator = StackNavigator({
-    MovieTallNav: { screen: MovieList},
-    USABoxNav:{screen:USABox}
+    Home: { screen: MainScreenNavigator,
+            navigationOptions:{
+                title:'首页'
+            }},
+    ChatC:{ screen:Chat}
 
 });
+
+
 
 class HeaderText extends React.Component {
   render () {
