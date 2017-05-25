@@ -8,10 +8,11 @@ import React, { Component } from 'react';
 import {AppRegistry, StyleSheet, Text, View, Image, ListView,Button} from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
+import styles from './App/Styles/Main'
 import MovieList from './App/Components/MovieList'
 import USABox from './App/Components/USABox'
 import Chat from './App/Components/ChatScreen'
-import styles from './App/Styles/Main'
+import MovieDetail from './App/Components/MovieDetail'
 
 const MainScreenNavigator = TabNavigator({
     TopList: {
@@ -37,7 +38,7 @@ const MainScreenNavigator = TabNavigator({
                     style={[styles.icon, {tintColor: tintColor}]}
                 />
                 ),
-            selected:true,
+            activeBackgroundColor:'red',
             }
         },
 });
@@ -47,8 +48,10 @@ const MainNavigator = StackNavigator({
     Home: { screen: MainScreenNavigator,
             navigationOptions:{
                 title:'首页',
+                activeTintColor:'red'
             }},
-    ChatC:{ screen:Chat}
+    ChatC:{ screen:Chat},
+    Detail:{screen:MovieDetail}
 
 });
 

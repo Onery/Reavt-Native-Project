@@ -99,16 +99,16 @@ class USABox extends React.Component {
                 rowHasChanged:(row1,row2) => row1 !==row2
             }),
 
+
             loaded:false
         };
 
-
-    this.renderMovieList=this.renderMovieList.bind(this);
-    }
-
-    componentDidMount() {
         this.fetchData();
     }
+
+    /*componentDidMount() {
+        this.fetchData();
+    }*/
 
     fetchData(){
         fetch(REQUEST_URL)
@@ -123,13 +123,17 @@ class USABox extends React.Component {
     }
 
 
+    showMovieDetail (movie) {
+        this.props.navigation.navigate('Detail',{movieName:movie.title})
+    }
 
     renderMovieList (movie) {
         return (
             <TouchableOpacity
                 underlayColor="rgba(34,26,38,0.2)"
                 onPress={()=>{
-                    this.props.navigation.navigate('ChatC',{toUserName:'Your Father',movieName:movie.title});
+                    /*this.props.navigation.navigate('ChatC',{toUserName:'Your Father',movieName:movie.title});*/
+                    this.showMovieDetail(movie)
                 }}
             >
                 <View style={styles.item}>
@@ -172,7 +176,7 @@ class USABox extends React.Component {
 
             <View style={styles.container}>
                 <ListView dataSource={this.state.movies}
-                          renderRow={this.renderMovieList}
+                          renderRow={this.renderMovieList.bind(this)}
                 />
 
             </View>

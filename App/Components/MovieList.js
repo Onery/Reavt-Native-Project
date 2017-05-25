@@ -103,8 +103,7 @@ class MovieList extends React.Component {
             loaded:false
         };
 
-
-        this.renderMovieList = this.renderMovieList.bind(this);
+        this.fetchData();
     }
 
     fetchData(){
@@ -119,10 +118,13 @@ class MovieList extends React.Component {
             .done();
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         this.fetchData();
-    }
+    }*/
 
+    showMovieDetail (movie) {
+        this.props.navigation.navigate('Detail',{movieName:movie.title})
+    }
 
     renderMovieList (movie) {
         return (
@@ -130,7 +132,8 @@ class MovieList extends React.Component {
                 underlayColor="rgba(34,26,38,0.2)"
 
                 onPress={()=>{
-                    this.props.navigation.navigate('ChatC', { usaBox:  '北美票房' ,toUserName:'Your Dad',movieName:movie.title});
+                    /*this.props.navigation.navigate('ChatC', { usaBox:  '北美票房' ,toUserName:'Your Dad',movieName:movie.title});*/
+                    this.showMovieDetail(movie)
                 }}
             >
                 <View style={styles.item}>
@@ -173,7 +176,7 @@ class MovieList extends React.Component {
 
             <View style={styles.container}>
                 <ListView dataSource={this.state.movies}
-                          renderRow={this.renderMovieList}
+                          renderRow={this.renderMovieList.bind(this)}
                 />
 
             </View>
