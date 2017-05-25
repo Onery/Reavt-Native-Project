@@ -130,7 +130,7 @@ class MovieList extends React.Component {
                 underlayColor="rgba(34,26,38,0.2)"
 
                 onPress={()=>{
-                    this.props.navigation.navigate('ChatC', { usaBox:  '北美票房' });
+                    this.props.navigation.navigate('ChatC', { usaBox:  '北美票房' ,toUserName:'Your Dad',movieName:movie.title});
                 }}
             >
                 <View style={styles.item}>

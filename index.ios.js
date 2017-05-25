@@ -15,7 +15,7 @@ import Chat from './App/Components/ChatScreen'
 const MainScreenNavigator = TabNavigator({
     TopList: { screen: MovieList,
                navigationOptions:{
-                   title:'热门电影'
+                   title:'热门电影',
                }
             },
     BoxList: { screen: USABox ,

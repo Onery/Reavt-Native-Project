@@ -129,7 +129,7 @@ class USABox extends React.Component {
             <TouchableOpacity
                 underlayColor="rgba(34,26,38,0.2)"
                 onPress={()=>{
-                    this.props.navigation.navigate('ChatC');
+                    this.props.navigation.navigate('ChatC',{toUserName:'Your Father',movieName:movie.title});
                 }}
             >
                 <View style={styles.item}>

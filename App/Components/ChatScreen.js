@@ -12,13 +12,14 @@ import {
 } from 'react-native';
 
 class ChatScreen extends React.Component {
-    static navigationOptions = {
-        title: 'Chat with Lucy',
-    };
+    static navigationOptions = ({navigation}) => ({
+        title: `Chat with ${navigation.state.params.movieName}`,
+    });
     render() {
+        const { params } = this.props.navigation.state;
         return (
-            <View>
-                <Text>Chat with Onery</Text>
+            <View style={styles.overlay}>
+                <Text style={styles.title}>Chat with {params.toUserName}</Text>
             </View>
         );
     }
