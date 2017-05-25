@@ -25,9 +25,9 @@ const REQUEST_URL = 'https://api.douban.com/v2/movie/us_box'
 
 
 class USABox extends React.Component {
-    static navigationOptions = {
-        title: 'Chat with Lucy',
-    };
+    static navigationOptions = ({ navigation }) => ({
+        title: `${navigation.state.params.usaBox}`,
+    });
 
     constructor(props) {
         super(props);

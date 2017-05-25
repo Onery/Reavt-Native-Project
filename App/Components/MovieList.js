@@ -27,8 +27,8 @@ const REQUEST_URL = 'https://api.douban.com/v2/movie/top250'
 
 class MovieList extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: 'HomePage',
-        headerRight: <Button title={'Chat'} onPress={() => navigation.navigate('USABoxNav', { user:  'HeChao' })
+        title: '热门电影',
+        headerRight: <Button title={'北美票房'} onPress={() => navigation.navigate('USABoxNav', { usaBox:  '北美票房' })
         } />,
     });
     constructor(props) {
@@ -130,7 +130,7 @@ class MovieList extends React.Component {
                 underlayColor="rgba(34,26,38,0.2)"
 
                 onPress={()=>{
-                    this.props.navigation.navigate('USABoxNav');
+                    this.props.navigation.navigate('USABoxNav', { usaBox:  '北美票房' });
                 }}
             >
                 <View style={styles.item}>
