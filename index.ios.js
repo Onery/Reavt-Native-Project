@@ -18,7 +18,7 @@ const MainScreenNavigator = TabNavigator({
     TopList: {
         screen: MovieList,
         navigationOptions:{
-            title:'热门电影',
+            tabBarLabel:'热门电影',
             tabBarIcon: ({ tintColor }) => (
                 <Image
                     source={require('./App/Img/film.png')}
@@ -31,24 +31,47 @@ const MainScreenNavigator = TabNavigator({
     BoxList: {
         screen: USABox ,
         navigationOptions:{
-            title:'欧美排行',
+            tabBarLabel:'欧美排行',
             tabBarIcon: ({ tintColor }) => (
                 <Image
                     source={require('./App/Img/film-clap-board.png')}
                     style={[styles.icon, {tintColor: tintColor}]}
                 />
                 ),
-            activeBackgroundColor:'red',
-            }
+            headerStyle:{
+                backgroundColor:'darkslateblue'
+            },
+        }
+    },
+},
+    {
+        tabBarOptions: {
+            activeTintColor:'white',
+            activeBackgroundColor: 'darkslateblue',
+            inactiveBackgroundColor:'darkslateblue',
+            labelStyle: {
+                fontSize: 10,
+            },
         },
-});
+        style: {
+            backgroundColor: 'rgba(255,255,255,0.8)',
+        },
+    }
+);
 
 
 const MainNavigator = StackNavigator({
     Home: { screen: MainScreenNavigator,
             navigationOptions:{
                 title:'首页',
-                activeTintColor:'red'
+                headerStyle:{
+                    backgroundColor:'darkslateblue'
+                },
+                titleStyle: {
+                    fontsize:300,
+                },
+                headerTintColor:'white'
+
             }},
     ChatC:{ screen:Chat},
     Detail:{screen:MovieDetail}
