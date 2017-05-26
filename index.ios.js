@@ -8,11 +8,12 @@ import React, { Component } from 'react';
 import {AppRegistry, StyleSheet, Text, View, Image, ListView,Button} from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
-import styles from './App/Styles/Main'
-import MovieList from './App/Components/MovieList'
-import USABox from './App/Components/USABox'
-import Chat from './App/Components/ChatScreen'
-import MovieDetail from './App/Components/MovieDetail'
+import styles       from './App/Styles/Main'
+import MovieList    from './App/Components/MovieList'
+import USABox       from './App/Components/USABox'
+import Chat         from './App/Components/ChatScreen'
+import MovieDetail  from './App/Components/MovieDetail'
+import Search       from './App/Components/Search'
 
 const MainScreenNavigator = TabNavigator({
     TopList: {
@@ -31,19 +32,31 @@ const MainScreenNavigator = TabNavigator({
     BoxList: {
         screen: USABox ,
         navigationOptions:{
-            tabBarLabel:'欧美排行',
+            tabBarLabel:'欧美票房',
             tabBarIcon: ({ tintColor }) => (
                 <Image
                     source={require('./App/Img/film-clap-board.png')}
                     style={[styles.icon, {tintColor: tintColor}]}
                 />
                 ),
-            headerStyle:{
-                backgroundColor:'darkslateblue'
-            },
+            }
+        },
+
+    Search: {
+        screen: Search ,
+        navigationOptions:{
+            tabBarLabel:'搜索',
+            tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('./App/Img/search.png')}
+                    style={[styles.icon, {tintColor: tintColor}]}
+                />
+            ),
         }
     },
 },
+
+
     {
         tabBarOptions: {
             activeTintColor:'white',
