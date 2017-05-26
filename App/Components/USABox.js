@@ -177,6 +177,7 @@ class USABox extends React.Component {
             <View style={styles.container}>
                 <ListView dataSource={this.state.movies}
                           renderRow={this.renderMovieList.bind(this)}
+                          removeClippedSubviews={false}
                 />
 
             </View>

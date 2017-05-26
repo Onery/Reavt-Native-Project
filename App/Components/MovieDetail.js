@@ -28,19 +28,49 @@ class MovieDetail extends React.Component {
         const { params } = this.props.navigation.state;
         console.log(params.movieInfo.id);
         this.state={
-            movieDetail:''
+            movieDetail:'',
+            loaded:false
         };
 
         const REQUEST_URL=`https://api.douban.com/v2/movie/subject/${params.movieInfo.id}`
+        this.fetchData(REQUEST_URL)
     }
 
 
+    fetchData(movieURL) {
+        fetch (movieURL)
+        .then(response => response.json())
+        .then(responseData => {
+            this.setState({
+                movieDetail:responseData,
+                loaded:true
+            });
+        })
+        .done();
+
+    }
+
     render() {
+
+        if(!this.state.loaded) {
+            return (
+                <View style={styles.container}>
+                    <View style={styles.loading}>
+                        <ActivityIndicator
+                            size="large"
+                            color='#6435c9'
+                        />
+                    </View>
+                </View>
+            )
+        }
+
         const { params } = this.props.navigation.state;
         return (
             <View style={styles.container}>
-                <View style={styles.loading}>
-                    <Text>MovieDetail {params.movieInfo.id}</Text>
+                <View style={[styles.item,{flexDirection:'column',margin:12}]}>
+                    <Text>MovieId is {params.movieInfo.id}</Text>
+                    <Text style={styles.itemText}>{this.state.movieDetail.summary}</Text>
                 </View>
             </View>
         );

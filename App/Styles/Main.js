@@ -122,14 +122,15 @@ let styles=StyleSheet.create({
     },
 
     itemText:{
-        fontSize:18,
+        fontSize:16,
         fontFamily:'Helvetica Neue',
-        fontWeight:'200',
-        color:'#6435c9',
-        padding:24,
+        fontWeight:'300',
+        color:'rgba(0,0,0,0.8)',
+        lineHeight:20,
+        /*padding:24,
         paddingTop:0,
         textAlign:'center',
-        backgroundColor:'white',
+        backgroundColor:'white',*/
     },
 
     container:{
