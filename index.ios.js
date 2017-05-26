@@ -62,21 +62,24 @@ const MainScreenNavigator = TabNavigator({
 
 const MainNavigator = StackNavigator({
     Home: { screen: MainScreenNavigator,
-            navigationOptions:{
-                title:'首页',
-                headerStyle:{
-                    backgroundColor:'darkslateblue'
-                },
-                titleStyle: {
-                    fontsize:300,
-                },
-                headerTintColor:'white'
-
-            }},
+            },
     ChatC:{ screen:Chat},
     Detail:{screen:MovieDetail}
 
-});
+},
+    {
+        navigationOptions:{
+            title:'首页',
+            headerStyle:{
+                backgroundColor:'darkslateblue'
+            },
+            titleStyle: {
+                fontsize:300,
+            },
+            headerTintColor:'white'
+
+        }
+    });
 
 
 

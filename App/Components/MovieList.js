@@ -123,7 +123,7 @@ class MovieList extends React.Component {
     }*/
 
     showMovieDetail (movie) {
-        this.props.navigation.navigate('Detail',{movieName:movie.title})
+        this.props.navigation.navigate('Detail',{movieInfo:movie})
     }
 
     renderMovieList (movie) {
