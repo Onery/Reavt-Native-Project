@@ -71,7 +71,6 @@ class MovieDetail extends React.Component {
             return(
                 <View style={{marginBottom:15,paddingLeft:6,paddingRight:6}}>
                     <Text style={styles.itemText}>{p}</Text>
-
                 </View>
             );
         });
@@ -81,7 +80,6 @@ class MovieDetail extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={[styles.item,{flexDirection:'column',margin:12}]}>
-                    
                     {summary}
                 </View>
             </View>

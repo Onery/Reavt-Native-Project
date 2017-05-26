@@ -124,7 +124,7 @@ class USABox extends React.Component {
 
 
     showMovieDetail (movie) {
-        this.props.navigation.navigate('Detail',{movieInfo:movie})
+        this.props.navigation.navigate('Detail',{movieInfo:movie.subject})
     }
 
     renderMovieList (movie) {
