@@ -22,13 +22,30 @@ class Search extends React.Component{
 
     static navigationOptions = ({navigation})=>({
         title:'搜索',
+
     })
 
     constructor (props) {
         super(props);
-        this.state={text:''};
+        this.state={
+            text:'',
+            query:''
+        };
 
     }
+
+    searchMovie(){
+        const REQUEST_URL = `http://api.douban.com/v2/movie/search?q=${this.state.query}`
+        fetch(REQUEST_URL)
+            .then(response => response.json())
+            .then(responseData => {
+                console.log(responseData)
+            })
+            .done();
+    }
+
+
+
 
     render(){
         return(
@@ -54,14 +71,17 @@ class Search extends React.Component{
                     autoFocus={true}*/
                     returnKeyType={"next"}
 
-                    onChangeText={(text)=>console.log(text)}
-
+                    onChangeText={(editText)=> {
+                        this.setState({query:editText})
+                        }
+                    }
                     onFocus={()=>console.log('onfocus')}
                     onBlur={()=>console.log('onblur')}
                     onChange={()=>console.log('onchange')}
-
                     onEndEditing={()=>console.log('onendEditing')}
-                    onSubmitEditing={()=>console.log('onsubmitediting')}
+                    onSubmitEditing={
+                        this.searchMovie.bind(this)
+                    }
                     />
                 </View>
             </View>
