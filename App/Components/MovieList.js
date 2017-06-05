@@ -103,7 +103,6 @@ class MovieList extends React.Component {
             loaded:false
         };
 
-        this.fetchData();
     }
 
     fetchData(){
@@ -118,9 +117,9 @@ class MovieList extends React.Component {
             .done();
     }
 
-    /*componentDidMount() {
+    componentDidMount() {
         this.fetchData();
-    }*/
+    }
 
     showMovieDetail (movie) {
         this.props.navigation.navigate('Detail',{movieInfo:movie})

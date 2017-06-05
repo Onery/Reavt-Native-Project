@@ -19,6 +19,7 @@ const MainScreenNavigator = TabNavigator({
     TopList: {
         screen: MovieList,
         navigationOptions:{
+            title:'推荐电影',
             tabBarLabel:'热门电影',
             tabBarIcon: ({ tintColor }) => (
                 <Image
@@ -32,6 +33,7 @@ const MainScreenNavigator = TabNavigator({
     BoxList: {
         screen: USABox ,
         navigationOptions:{
+            title:'欧美票房',
             tabBarLabel:'欧美票房',
             tabBarIcon: ({ tintColor }) => (
                 <Image
@@ -45,6 +47,7 @@ const MainScreenNavigator = TabNavigator({
     Search: {
         screen: Search ,
         navigationOptions:{
+            title:'搜索',
             tabBarLabel:'搜索',
             tabBarIcon: ({ tintColor }) => (
                 <Image
@@ -82,7 +85,6 @@ const MainNavigator = StackNavigator({
 },
     {
         navigationOptions:{
-            title:'首页',
             headerStyle:{
                 backgroundColor:'darkslateblue'
             },

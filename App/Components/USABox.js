@@ -103,12 +103,11 @@ class USABox extends React.Component {
             loaded:false
         };
 
-        this.fetchData();
     }
 
-    /*componentDidMount() {
+    componentDidMount() {
         this.fetchData();
-    }*/
+    }
 
     fetchData(){
         fetch(REQUEST_URL)
