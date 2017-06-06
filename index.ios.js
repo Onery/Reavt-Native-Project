@@ -14,6 +14,7 @@ import USABox       from './App/Components/USABox'
 import Chat         from './App/Components/ChatScreen'
 import MovieDetail  from './App/Components/MovieDetail'
 import Search       from './App/Components/Search'
+import SearchResult       from './App/Components/SearchResult'
 
 const MainScreenNavigator = TabNavigator({
     TopList: {
@@ -80,7 +81,8 @@ const MainNavigator = StackNavigator({
     Home: { screen: MainScreenNavigator,
             },
     ChatC:{ screen:Chat},
-    Detail:{screen:MovieDetail}
+    Detail:{screen:MovieDetail},
+    SearchResult:{screen:SearchResult}
 
 },
     {

@@ -39,7 +39,9 @@ class Search extends React.Component{
         fetch(REQUEST_URL)
             .then(response => response.json())
             .then(responseData => {
-                console.log(responseData)
+                console.log(responseData);
+                /*this.props.navigation.navigate('SearchResult',{title:responseData.title,results:responseData.subjects})*/
+                this.props.navigation.navigate('SearchResult',{searchTitle:responseData.title,results:responseData.subjects})
             })
             .done();
     }
@@ -69,7 +71,7 @@ class Search extends React.Component{
                     clearTextOnFocus={false}
                     enablesReturnKeyAutomatically={true}
                     autoFocus={true}*/
-                    returnKeyType={"next"}
+                    returnKeyType={"search"}
 
                     onChangeText={(editText)=> {
                         this.setState({query:editText})
